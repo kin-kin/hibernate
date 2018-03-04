@@ -1,11 +1,11 @@
 package jp.gr.java_conf.kk.dao.entity;
-// Generated 2018/03/04 14:10:28 by Hibernate Tools 5.2.9.Final
+// Generated 2018/03/04 17:39:21 by Hibernate Tools 5.2.9.Final
 
 
 import java.util.Date;
 
 /**
- * Entity class for account table
+ * Entity class for account table.
  * @author Koichi Kitamura
  * @version 1.0.0 2018/03/03
  *         
@@ -80,7 +80,7 @@ public class Account  implements java.io.Serializable {
         return this.accountId;
     }
     
-    protected void setAccountId(Integer accountId) {
+    public void setAccountId(Integer accountId) {
         this.accountId = accountId;
     }
     /**       
@@ -150,7 +150,7 @@ public class Account  implements java.io.Serializable {
         return this.createDate;
     }
     
-    protected void setCreateDate(Date createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
     /**       
@@ -160,7 +160,7 @@ public class Account  implements java.io.Serializable {
         return this.updateDate;
     }
     
-    protected void setUpdateDate(Date updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 

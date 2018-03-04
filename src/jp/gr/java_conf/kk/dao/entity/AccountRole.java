@@ -1,11 +1,11 @@
 package jp.gr.java_conf.kk.dao.entity;
-// Generated 2018/03/04 14:10:28 by Hibernate Tools 5.2.9.Final
+// Generated 2018/03/04 17:39:21 by Hibernate Tools 5.2.9.Final
 
 
 import java.util.Date;
 
 /**
- * Entity class for account role table
+ * Entity class for account role table.
  * @author Koichi Kitamura
  * @version 1.0.0 2018/03/03
  *         
@@ -46,7 +46,7 @@ public class AccountRole  implements java.io.Serializable {
         return this.accountRoleId;
     }
     
-    protected void setAccountRoleId(Integer accountRoleId) {
+    public void setAccountRoleId(Integer accountRoleId) {
         this.accountRoleId = accountRoleId;
     }
     /**       
@@ -66,7 +66,7 @@ public class AccountRole  implements java.io.Serializable {
         return this.createDate;
     }
     
-    protected void setCreateDate(Date createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
     /**       
@@ -76,7 +76,7 @@ public class AccountRole  implements java.io.Serializable {
         return this.updateDate;
     }
     
-    protected void setUpdateDate(Date updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
