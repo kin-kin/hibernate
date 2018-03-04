@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="jp.gr.java_conf.kk.dao.entity">
+    <class name="Account" table="account">
+        <meta attribute="class-description">
+Entity class for account table
+
+@author Koichi Kitamura
+@version 1.0.0 2018/03/03
+        </meta>
+        <id name="accountId"
+            type="integer"
+            column="account_id">
+            <meta attribute="field-description">account ID (automatically generated)</meta>
+            <meta attribute="scope-set">protected</meta>
+            <generator class="identity" /> <!-- "SERIAL" type for PostgreSQL -->
+        </id>
+        <property name="id"
+                  type="text"
+                  column="id"
+                  not-null="true">
+            <meta attribute="field-description">ID</meta>
+        </property>
+        <property name="password"
+                  type="text"
+                  column="password"
+                  not-null="true">
+            <meta attribute="field-description">password</meta>
+        </property>
+        <property name="name"
+                  type="text"
+                  column="name"
+                  not-null="true">
+            <meta attribute="field-description">name</meta>
+        </property>
+        <property name="email"
+                  type="text"
+                  column="email">
+            <meta attribute="field-description">E-mail</meta>
+        </property>
+        <many-to-one name="roleId"
+                     column="role_id"
+                     not-null="true"
+                     class="AccountRole"
+                     cascade="delete"
+                     property-ref="accountRoleId">
+            <meta attribute="field-description">role ID</meta>
+        </many-to-one>
+        <property name="lastLoginDate"
+                  type="timestamp"
+                  column="last_login_date">
+            <meta attribute="field-description">last login date</meta>
+        </property>
+        <property name="createDate"
+                  type="timestamp"
+                  column="create_date"
+                  not-null="true">
+            <meta attribute="field-description">create date</meta>
+            <meta attribute="scope-set">protected</meta>
+        </property>
+        <property name="updateDate"
+                  type="timestamp"
+                  column="update_date"
+                  not-null="true">
+            <meta attribute="field-description">update date</meta>
+            <meta attribute="scope-set">protected</meta>
+        </property>
+    </class>
+</hibernate-mapping>

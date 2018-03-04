@@ -1,0 +1,9 @@
+set PGHOME=C:\Program Files\PostgreSQL\9.6
+set PGHOST=127.0.0.1
+set PGPORT=5432
+set PGUSER=postgres
+set PGPASSWORD=postgres
+set DB=kkdb
+set DBUSER=kk
+set DBPASSWORD=kk
+set PATH=%PGHOME%\bin;%PATH%

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project name="kk-dao">
+    <!-- ########## properties ########## -->
+    <property name="bin.dir" value="bin" />
+    <property name="ext.lib.dir" value="extlib" /> <!-- Hibernate Tools -->
+    <property name="lib.dir" value="lib" />
+    <property name="sql.dir" value="sql" />
+    <property name="src.dir" value="src" />
+    <property name="output.dir" value="ant" />
+    <property name="hibernate.config" value="hibernate.cfg.xml" />
+    <property name="hibernate.ddl" value="${sql.dir}/kkdb.sql" />
+    
+    <!-- ########## paths ########## -->
+    <path id="class.path">
+        <fileset dir="${lib.dir}" includes="**/*.jar" />
+    </path>
+    
+    <path id="ext.class.path">
+        <fileset dir="${lib.dir}" includes="**/*.jar" />
+        <fileset dir="${ext.lib.dir}" includes="**/*.jar" />
+    </path>
+    
+    <!-- ########## targets ########## -->
+    <target name="clean" description="delete all artifacts">
+        <delete dir="${output.dir}" />
+    </target>
+    
+    <target name="hbm2ddl" description="create DDL from Hibernate mapping files">
+        <antcall target="-createdb" />
+        
+        <!-- run as another process to close the DB connection -->
+        <exec executable="cmd.exe">
+            <arg line="/C ant hbm2ddl.impl" />
+        </exec>
+        
+        <antcall target="-dropdb" />
+    </target>
+    
+    <target name="hbm2ddl.impl" description="create DDL from Hibernate mapping files">
+        <delete file="${hibernate.ddl}" />
+        
+        <taskdef name="schemaexport"
+                 classname="org.hibernate.tool.hbm2ddl.SchemaExportTask"
+                 classpathref="class.path" />
+        
+        <schemaexport config="${hibernate.config}"
+                      quiet="no"
+                      text="yes"
+                      drop="no"
+                      delimiter=";"
+                      output="${hibernate.ddl}"> <!-- text="yes" means not to create tables in the DB -->
+            <fileset dir="${src.dir}" includes="**/*.hbm.xml" />
+        </schemaexport>
+    </target>
+    
+    <target name="hbm2java" description="create Java entity file from Hibernate mapping files">
+        <antcall target="-createdb" />
+        
+        <!-- run as another process to close the DB connection -->
+        <exec executable="cmd.exe">
+            <arg line="/C ant hbm2java.impl" />
+        </exec>
+        
+        <antcall target="-dropdb" />
+    </target>
+    
+    <target name="hbm2java.impl" description="create Java entity file from Hibernate mapping files">
+        <taskdef name="hibernatetool"
+                 classname="org.hibernate.tool.ant.HibernateToolTask"
+                 classpathref="ext.class.path" />
+        
+        <hibernatetool destdir="${src.dir}">
+            <configuration configurationfile="${hibernate.config}">
+                <fileset dir="${src.dir}">
+                    <include name="**/*.hbm.xml"/>
+                </fileset>
+            </configuration>
+            <hbm2java />
+        </hibernatetool>
+    </target>
+    
+    <target name="hbm2dao" description="create Java DAO file from Hibernate mapping files">
+        <antcall target="-createdb" />
+        
+        <!-- run as another process to close the DB connection -->
+        <exec executable="cmd.exe">
+            <arg line="/C ant hbm2dao.impl" />
+        </exec>
+        
+        <antcall target="-dropdb" />
+    </target>
+    
+    <target name="hbm2dao.impl" description="create Java DAO file from Hibernate mapping files">
+        <taskdef name="hibernatetool"
+                 classname="org.hibernate.tool.ant.HibernateToolTask"
+                 classpathref="ext.class.path" />
+        
+        <hibernatetool destdir="${src.dir}">
+            <configuration configurationfile="${hibernate.config}">
+                <fileset dir="${src.dir}">
+                    <include name="**/*.hbm.xml"/>
+                </fileset>
+            </configuration>
+            <hbm2dao />
+        </hibernatetool>
+    </target>
+    
+    <target name="-createdb" description="create DB and user">
+        <exec executable="cmd.exe" dir="${bin.dir}">
+            <arg line="/C db_create.bat" />
+        </exec>
+    </target>
+    
+    <target name="-dropdb" description="delete DB and user">
+        <exec executable="cmd.exe" dir="${bin.dir}">
+            <arg line="/C db_drop.bat" />
+        </exec>
+    </target>
+</project>
