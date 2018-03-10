@@ -1,5 +1,5 @@
 package jp.gr.java_conf.kk.dao.entity;
-// Generated 2018/03/04 17:39:21 by Hibernate Tools 5.2.9.Final
+// Generated 2018/03/10 19:09:05 by Hibernate Tools 5.2.9.Final
 
 
 import java.util.Date;
@@ -14,19 +14,19 @@ public class AccountRole  implements java.io.Serializable {
 
 
      /**
-      * account role ID (automatically generated)
+      * record ID (primary key, automatically generated)
      */
-     private Integer accountRoleId;
+     private Integer recordId;
      /**
-      * name
+      * name (not null, unique)
      */
      private String name;
      /**
-      * create date
+      * create date (not null)
      */
      private Date createDate;
      /**
-      * update date
+      * update date (not null)
      */
      private Date updateDate;
 
@@ -40,17 +40,17 @@ public class AccountRole  implements java.io.Serializable {
     }
    
     /**       
-     *      * account role ID (automatically generated)
+     *      * record ID (primary key, automatically generated)
      */
-    public Integer getAccountRoleId() {
-        return this.accountRoleId;
+    public Integer getRecordId() {
+        return this.recordId;
     }
     
-    public void setAccountRoleId(Integer accountRoleId) {
-        this.accountRoleId = accountRoleId;
+    public void setRecordId(Integer recordId) {
+        this.recordId = recordId;
     }
     /**       
-     *      * name
+     *      * name (not null, unique)
      */
     public String getName() {
         return this.name;
@@ -60,7 +60,7 @@ public class AccountRole  implements java.io.Serializable {
         this.name = name;
     }
     /**       
-     *      * create date
+     *      * create date (not null)
      */
     public Date getCreateDate() {
         return this.createDate;
@@ -70,7 +70,7 @@ public class AccountRole  implements java.io.Serializable {
         this.createDate = createDate;
     }
     /**       
-     *      * update date
+     *      * update date (not null)
      */
     public Date getUpdateDate() {
         return this.updateDate;

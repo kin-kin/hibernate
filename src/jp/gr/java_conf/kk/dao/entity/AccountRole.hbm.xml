@@ -10,10 +10,10 @@ Entity class for account role table.
 @author Koichi Kitamura
 @version 1.0.0 2018/03/03
         </meta>
-        <id name="accountRoleId"
+        <id name="recordId"
             type="integer"
-            column="account_role_id">
-            <meta attribute="field-description">account role ID (automatically generated)</meta>
+            column="record_id">
+            <meta attribute="field-description">record ID (primary key, automatically generated)</meta>
             <generator class="identity" /> <!-- "SERIAL" type for PostgreSQL -->
         </id>
         <property name="name"
@@ -21,19 +21,19 @@ Entity class for account role table.
                   column="name"
                   not-null="true"
                   unique="true">
-            <meta attribute="field-description">name</meta>
+            <meta attribute="field-description">name (not null, unique)</meta>
         </property>
         <property name="createDate"
                   type="timestamp"
                   column="create_date"
                   not-null="true">
-            <meta attribute="field-description">create date</meta>
+            <meta attribute="field-description">create date (not null)</meta>
         </property>
         <property name="updateDate"
                   type="timestamp"
                   column="update_date"
                   not-null="true">
-            <meta attribute="field-description">update date</meta>
+            <meta attribute="field-description">update date (not null)</meta>
         </property>
     </class>
 </hibernate-mapping>

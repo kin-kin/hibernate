@@ -1,5 +1,5 @@
 package jp.gr.java_conf.kk.dao.entity;
-// Generated 2018/03/04 17:39:21 by Hibernate Tools 5.2.9.Final
+// Generated 2018/03/10 19:09:05 by Hibernate Tools 5.2.9.Final
 
 
 import java.util.Date;
@@ -14,19 +14,23 @@ public class Account  implements java.io.Serializable {
 
 
      /**
-      * account ID (automatically generated)
+      * record ID (primary key, automatically generated)
      */
-     private Integer accountId;
+     private Integer recordId;
      /**
-      * ID
+      * account ID (not null)
      */
-     private String id;
+     private String accountId;
      /**
-      * password
+      * account role record ID (not null)
+     */
+     private Integer accountRoleRecordId;
+     /**
+      * password (not null)
      */
      private String password;
      /**
-      * name
+      * name (not null)
      */
      private String name;
      /**
@@ -34,19 +38,15 @@ public class Account  implements java.io.Serializable {
      */
      private String email;
      /**
-      * role ID
-     */
-     private AccountRole roleId;
-     /**
       * last login date
      */
      private Date lastLoginDate;
      /**
-      * create date
+      * create date (not null)
      */
      private Date createDate;
      /**
-      * update date
+      * update date (not null)
      */
      private Date updateDate;
 
@@ -54,47 +54,57 @@ public class Account  implements java.io.Serializable {
     }
 
 	
-    public Account(String id, String password, String name, AccountRole roleId, Date createDate, Date updateDate) {
-        this.id = id;
+    public Account(String accountId, Integer accountRoleRecordId, String password, String name, Date createDate, Date updateDate) {
+        this.accountId = accountId;
+        this.accountRoleRecordId = accountRoleRecordId;
         this.password = password;
         this.name = name;
-        this.roleId = roleId;
         this.createDate = createDate;
         this.updateDate = updateDate;
     }
-    public Account(String id, String password, String name, String email, AccountRole roleId, Date lastLoginDate, Date createDate, Date updateDate) {
-       this.id = id;
+    public Account(String accountId, Integer accountRoleRecordId, String password, String name, String email, Date lastLoginDate, Date createDate, Date updateDate) {
+       this.accountId = accountId;
+       this.accountRoleRecordId = accountRoleRecordId;
        this.password = password;
        this.name = name;
        this.email = email;
-       this.roleId = roleId;
        this.lastLoginDate = lastLoginDate;
        this.createDate = createDate;
        this.updateDate = updateDate;
     }
    
     /**       
-     *      * account ID (automatically generated)
+     *      * record ID (primary key, automatically generated)
      */
-    public Integer getAccountId() {
+    public Integer getRecordId() {
+        return this.recordId;
+    }
+    
+    public void setRecordId(Integer recordId) {
+        this.recordId = recordId;
+    }
+    /**       
+     *      * account ID (not null)
+     */
+    public String getAccountId() {
         return this.accountId;
     }
     
-    public void setAccountId(Integer accountId) {
+    public void setAccountId(String accountId) {
         this.accountId = accountId;
     }
     /**       
-     *      * ID
+     *      * account role record ID (not null)
      */
-    public String getId() {
-        return this.id;
+    public Integer getAccountRoleRecordId() {
+        return this.accountRoleRecordId;
     }
     
-    public void setId(String id) {
-        this.id = id;
+    public void setAccountRoleRecordId(Integer accountRoleRecordId) {
+        this.accountRoleRecordId = accountRoleRecordId;
     }
     /**       
-     *      * password
+     *      * password (not null)
      */
     public String getPassword() {
         return this.password;
@@ -104,7 +114,7 @@ public class Account  implements java.io.Serializable {
         this.password = password;
     }
     /**       
-     *      * name
+     *      * name (not null)
      */
     public String getName() {
         return this.name;
@@ -124,16 +134,6 @@ public class Account  implements java.io.Serializable {
         this.email = email;
     }
     /**       
-     *      * role ID
-     */
-    public AccountRole getRoleId() {
-        return this.roleId;
-    }
-    
-    public void setRoleId(AccountRole roleId) {
-        this.roleId = roleId;
-    }
-    /**       
      *      * last login date
      */
     public Date getLastLoginDate() {
@@ -144,7 +144,7 @@ public class Account  implements java.io.Serializable {
         this.lastLoginDate = lastLoginDate;
     }
     /**       
-     *      * create date
+     *      * create date (not null)
      */
     public Date getCreateDate() {
         return this.createDate;
@@ -154,7 +154,7 @@ public class Account  implements java.io.Serializable {
         this.createDate = createDate;
     }
     /**       
-     *      * update date
+     *      * update date (not null)
      */
     public Date getUpdateDate() {
         return this.updateDate;

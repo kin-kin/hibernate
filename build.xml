@@ -4,11 +4,13 @@
     <property name="bin.dir" value="bin" />
     <property name="ext.lib.dir" value="extlib" /> <!-- Hibernate Tools -->
     <property name="lib.dir" value="lib" />
+    <property name="res.dir" value="res" />
     <property name="sql.dir" value="sql" />
     <property name="src.dir" value="src" />
     <property name="output.dir" value="ant" />
-    <property name="hibernate.config" value="hibernate.cfg.xml" />
+    <property name="hibernate.config" value="${res.dir}/hibernate.cfg.xml" />
     <property name="hibernate.ddl" value="${sql.dir}/kkdb.sql" />
+    <property name="hibernate.doc.dir" value="${output.dir}/sqldoc" />
     
     <!-- ########## paths ########## -->
     <path id="class.path">
@@ -102,6 +104,32 @@
                 </fileset>
             </configuration>
             <hbm2dao />
+        </hibernatetool>
+    </target>
+    
+    <target name="hbm2doc" description="create DDL documents from Hibernate mapping files">
+        <antcall target="-createdb" />
+        
+        <!-- run as another process to close the DB connection -->
+        <exec executable="cmd.exe">
+            <arg line="/C ant hbm2doc.impl" />
+        </exec>
+        
+        <antcall target="-dropdb" />
+    </target>
+    
+    <target name="hbm2doc.impl" description="create DDL documents from Hibernate mapping files">
+        <taskdef name="hibernatetool"
+                 classname="org.hibernate.tool.ant.HibernateToolTask"
+                 classpathref="ext.class.path" />
+        
+        <hibernatetool destdir="${hibernate.doc.dir}">
+            <configuration configurationfile="${hibernate.config}">
+                <fileset dir="${src.dir}">
+                    <include name="**/*.hbm.xml"/>
+                </fileset>
+            </configuration>
+            <hbm2doc />
         </hibernatetool>
     </target>
     
