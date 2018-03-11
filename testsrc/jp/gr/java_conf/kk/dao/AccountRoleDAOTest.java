@@ -86,6 +86,25 @@ public class AccountRoleDAOTest {
     }
     
     /**
+     * Test for {@link AccountRoleDAO#selectByPKForUpdate(Integer)}
+     * 
+     * @throws Exception if unexpected error occurred.
+     */
+    @Test
+    public void testSelectByPKForUpdate() throws Exception {
+        try (DAOSession session = DAOFactory.openSession()) {
+            final AccountRoleDAO target = DAOFactory.createAccountRoleDAO(session);
+            final AccountRole entity = target.selectByPKForUpdate(Integer.valueOf(1));
+            
+            assertEquals(Integer.valueOf(1), entity.getRecordId());
+            assertEquals("Administrators", entity.getName());
+            assertEquals(entity.getCreateDate(), entity.getUpdateDate());
+            
+            assertNull(target.selectByPKForUpdate(Integer.valueOf(2)));
+        }
+    }
+    
+    /**
      * Test for {@link AccountRoleDAO#selectByName(String)}
      * 
      * @throws Exception if unexpected error occurred.
@@ -101,6 +120,21 @@ public class AccountRoleDAOTest {
             assertEquals(entity.getCreateDate(), entity.getUpdateDate());
             
             assertNull(target.selectByName("test"));
+        }
+    }
+    
+    /**
+     * Test for {@link AccountRoleDAO#selectCountAll()}
+     * 
+     * @throws Exception if unexpected error occurred.
+     */
+    @Test
+    public void testSelectCountAll() throws Exception {
+        try (DAOSession session = DAOFactory.openSession()) {
+            final AccountRoleDAO target = DAOFactory.createAccountRoleDAO(session);
+            final long count = target.selectCountAll();
+            
+            assertEquals(1, count);
         }
     }
     

@@ -97,6 +97,30 @@ public class AccountDAOTest {
     }
     
     /**
+     * Test for {@link AccountDAO#selectByPKForUpdate(Integer)}
+     * 
+     * @throws Exception if unexpected error occurred.
+     */
+    @Test
+    public void testSelectByPKForUpdaate() throws Exception {
+        try (DAOSession session = DAOFactory.openSession()) {
+            final AccountDAO target = DAOFactory.createAccountDAO(session);
+            final Account entity = target.selectByPKForUpdate(Integer.valueOf(1));
+            
+            assertEquals(Integer.valueOf(1), entity.getRecordId());
+            assertEquals("admin", entity.getAccountId());
+            assertEquals(Integer.valueOf(1), entity.getAccountRoleRecordId());
+            assertEquals("admin", entity.getPassword());
+            assertEquals("Administrator", entity.getName());
+            assertNull(entity.getEmail());
+            assertNull(entity.getLastLoginDate());
+            assertEquals(entity.getCreateDate(), entity.getUpdateDate());
+            
+            assertNull(target.selectByPKForUpdate(Integer.valueOf(2)));
+        }
+    }
+    
+    /**
      * Test for {@link AccountDAO#selectByAccountId(String)}
      * 
      * @throws Exception if unexpected error occurred.
@@ -149,6 +173,21 @@ public class AccountDAOTest {
             assertEquals(entity.getCreateDate(), entity.getUpdateDate());
             
             assertEquals(0, target.selectByAccountRoleRecordId(Integer.valueOf(2)).size());
+        }
+    }
+    
+    /**
+     * Test for {@link AccountDAO#selectCountAll()}
+     * 
+     * @throws Exception if unexpected error occurred.
+     */
+    @Test
+    public void testSelectCountAll() throws Exception {
+        try (DAOSession session = DAOFactory.openSession()) {
+            final AccountDAO target = DAOFactory.createAccountDAO(session);
+            final long count = target.selectCountAll();
+            
+            assertEquals(1, count);
         }
     }
     

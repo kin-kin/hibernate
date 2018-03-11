@@ -3,7 +3,9 @@ package jp.gr.java_conf.kk.dao.impl;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.LockMode;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import jp.gr.java_conf.kk.dao.DAO;
 import jp.gr.java_conf.kk.dao.DAOException;
@@ -49,6 +51,37 @@ abstract class DAOImpl<E, PK extends Serializable> implements DAO<E, PK> {
         }
         
         return entity;
+    }
+    
+    @Override
+    public E selectByPKForUpdate(final PK pk) throws DAOException {
+        assert null != pk;
+        
+        E entity = null;
+        
+        try {
+            entity = this.session.get(this.entityClass, pk, LockMode.PESSIMISTIC_WRITE);
+        } catch (final Exception e) {
+            throw new DAOException(e);
+        }
+        
+        return entity;
+    }
+    
+    @Override
+    public long selectCountAll() throws DAOException {
+        long count = 0L;
+        
+        try {
+            @SuppressWarnings("unchecked")
+            final Query<Long> query = this.session.createQuery(
+                "select count(*) from " + this.entityClass.getSimpleName());
+            count = query.uniqueResult().longValue();
+        } catch (final Exception e) {
+            throw new DAOException(e);
+        }
+        
+        return count;
     }
     
     @SuppressWarnings("unchecked")

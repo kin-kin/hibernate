@@ -29,6 +29,23 @@ public interface DAO<E, PK extends Serializable> {
     E selectByPK(PK pk) throws DAOException;
     
     /**
+     * Get an entity selected by the primary key for update.
+     * 
+     * @param pk primary key
+     * @return entity
+     * @throws DAOException if database access failed.
+     */
+    E selectByPKForUpdate(PK pk) throws DAOException;
+    
+    /**
+     * Get all entity counts.
+     * 
+     * @return all entity counts.
+     * @throws DAOException if database access failed.
+     */
+    long selectCountAll() throws DAOException;
+    
+    /**
      * Insert an entity.
      * 
      * @param entity entity
