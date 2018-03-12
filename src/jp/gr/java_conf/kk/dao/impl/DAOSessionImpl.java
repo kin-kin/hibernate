@@ -13,6 +13,9 @@ import jp.gr.java_conf.kk.dao.DAOSession;
  */
 class DAOSessionImpl implements DAOSession {
     
+    /** serial version ID */
+    private static final long serialVersionUID = 1L;
+    
     /** hibernate session */
     private final Session session;
     

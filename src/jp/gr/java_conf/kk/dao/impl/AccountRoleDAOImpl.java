@@ -45,13 +45,15 @@ class AccountRoleDAOImpl
     
     @Override
     public AccountRole selectByName(final String name) throws DAOException {
+        assert null != name;
+        
         AccountRole entity = null;
         
         try {
             @SuppressWarnings("unchecked")
             final Query<AccountRole> query = super.session.createQuery(
-                "from AccountRole as a where a.name = ?");
-            query.setParameter(0, name);
+                "from AccountRole as a where a.name = :name");
+            query.setParameter("name", name);
             entity = query.uniqueResult();
         } catch (final Exception e) {
             throw new DAOException(e);

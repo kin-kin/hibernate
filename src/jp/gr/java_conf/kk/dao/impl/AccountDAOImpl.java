@@ -46,13 +46,15 @@ class AccountDAOImpl
     @Override
     public List<Account> selectByAccountId(final String accountId)
             throws DAOException {
+        assert null != accountId;
+        
         List<Account> entityList = null;
         
         try {
             @SuppressWarnings("unchecked")
             final Query<Account> query = super.session.createQuery(
-                "from Account as a where a.accountId = ? order by a.name");
-            query.setParameter(0, accountId);
+                "from Account as a where a.accountId = :id order by a.name");
+            query.setParameter("id", accountId);
             entityList = query.list();
         } catch (final Exception e) {
             throw new DAOException(e);
@@ -64,13 +66,15 @@ class AccountDAOImpl
     @Override
     public List<Account> selectByAccountRoleRecordId(final Integer accountRoleRecordId)
             throws DAOException {
+        assert null != accountRoleRecordId;
+        
         List<Account> entityList = null;
         
         try {
             @SuppressWarnings("unchecked")
             final Query<Account> query = super.session.createQuery(
-                "from Account as a where a.accountRoleRecordId = ? order by a.name, a.accountId");
-            query.setParameter(0, accountRoleRecordId);
+                "from Account as a where a.accountRoleRecordId = :id order by a.name, a.accountId");
+            query.setParameter("id", accountRoleRecordId);
             entityList = query.list();
         } catch (final Exception e) {
             throw new DAOException(e);

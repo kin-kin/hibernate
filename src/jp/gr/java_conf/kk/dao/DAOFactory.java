@@ -11,8 +11,7 @@ import jp.gr.java_conf.kk.dao.impl.DAOLibrary;
 public class DAOFactory {
     
     /** DAO library */
-    private static final DAOLibrary lib
-        = DAOLibrary.createDAOLibrary();
+    private static final DAOLibrary lib = DAOLibrary.createDAOLibrary();
     
     /**
      * Constructor.

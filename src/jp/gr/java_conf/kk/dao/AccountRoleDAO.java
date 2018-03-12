@@ -14,9 +14,9 @@ public interface AccountRoleDAO extends DAO<AccountRole, Integer> {
      * Get entity selected by the name.
      * 
      * @param name name
-     * @return entity (null if no entry was found)
+     * @return entity (null if no entity was found)
      * @throws DAOException if database access failed.
      */
-    AccountRole selectByName(final String name) throws DAOException;
+    AccountRole selectByName(String name) throws DAOException;
     
 }

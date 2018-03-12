@@ -1,12 +1,14 @@
 package jp.gr.java_conf.kk.dao;
 
+import java.io.Serializable;
+
 /**
  * DAO session interface.
  * 
  * @author Koichi Kitamura
  * @version 1.0.0 2018/03/03
  */
-public interface DAOSession extends AutoCloseable {
+public interface DAOSession extends Serializable, AutoCloseable {
     
     /**
      * Begin the transaction.

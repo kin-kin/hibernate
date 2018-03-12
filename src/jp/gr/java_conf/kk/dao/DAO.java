@@ -14,7 +14,7 @@ public interface DAO<E, PK extends Serializable> {
     /**
      * Get all entities.
      * 
-     * @return entity list (empty if no entry was found)
+     * @return entity list (empty if no entity was found)
      * @throws DAOException if database access failed.
      */
     List<E> selectAll() throws DAOException;
@@ -23,7 +23,7 @@ public interface DAO<E, PK extends Serializable> {
      * Get an entity selected by the primary key.
      * 
      * @param pk primary key
-     * @return entity
+     * @return entity (null if no entity was found)
      * @throws DAOException if database access failed.
      */
     E selectByPK(PK pk) throws DAOException;
@@ -32,7 +32,7 @@ public interface DAO<E, PK extends Serializable> {
      * Get an entity selected by the primary key for update.
      * 
      * @param pk primary key
-     * @return entity
+     * @return entity (null if no entity was found)
      * @throws DAOException if database access failed.
      */
     E selectByPKForUpdate(PK pk) throws DAOException;

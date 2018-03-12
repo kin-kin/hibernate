@@ -47,7 +47,7 @@ public class AccountDAOTest {
     }
     
     /**
-     * Test for {@link AccountDAO#selectAll()}
+     * Test for {@link AccountDAO#selectAll()}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -73,7 +73,7 @@ public class AccountDAOTest {
     }
     
     /**
-     * Test for {@link AccountDAO#selectByPK(Integer)}
+     * Test for {@link AccountDAO#selectByPK(Integer)}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -97,7 +97,7 @@ public class AccountDAOTest {
     }
     
     /**
-     * Test for {@link AccountDAO#selectByPKForUpdate(Integer)}
+     * Test for {@link AccountDAO#selectByPKForUpdate(Integer)}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -121,7 +121,7 @@ public class AccountDAOTest {
     }
     
     /**
-     * Test for {@link AccountDAO#selectByAccountId(String)}
+     * Test for {@link AccountDAO#selectByAccountId(String)}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -149,7 +149,7 @@ public class AccountDAOTest {
     }
     
     /**
-     * Test for {@link AccountDAO#selectByAccountRoleRecordId(Integer)}
+     * Test for {@link AccountDAO#selectByAccountRoleRecordId(Integer)}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -177,7 +177,7 @@ public class AccountDAOTest {
     }
     
     /**
-     * Test for {@link AccountDAO#selectCountAll()}
+     * Test for {@link AccountDAO#selectCountAll()}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -192,7 +192,7 @@ public class AccountDAOTest {
     }
     
     /**
-     * Test for {@link AccountDAO#insert(Account)}
+     * Test for {@link AccountDAO#insert(Account)}.
      * 
      * @throws Exception if unexpected error occurred.s
      */
@@ -240,7 +240,7 @@ public class AccountDAOTest {
     }
     
     /**
-     * Test for {@link AccountDAO#update(Account)}
+     * Test for {@link AccountDAO#update(Account)}.
      * 
      * @throws Exception if unexpected error occurred.s
      */
@@ -284,7 +284,7 @@ public class AccountDAOTest {
     }
     
     /**
-     * Test for {@link AccountDAO#delete(Account)}
+     * Test for {@link AccountDAO#delete(Account)}.
      * 
      * @throws Exception if unexpected error occurred.s
      */
@@ -313,7 +313,7 @@ public class AccountDAOTest {
     }
     
     /**
-     * Test for {@link AccountDAO#delete(List)}
+     * Test for {@link AccountDAO#delete(List)}.
      * 
      * @throws Exception if unexpected error occurred.s
      */

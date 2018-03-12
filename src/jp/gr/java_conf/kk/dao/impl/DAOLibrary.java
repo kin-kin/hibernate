@@ -40,10 +40,10 @@ public interface DAOLibrary {
      * @param session DAO session
      * @param daoClass DAO interface class
      * @return DAO (null if no DAO was found)
-     * @throws DAOException
+     * @throws DAOException if database access failed.
      */
-    DAO<?, ? extends Serializable> createDAO(final DAOSession session,
-            final Class<? extends DAO<?, ? extends Serializable>> daoClass)
+    DAO<?, ? extends Serializable> createDAO(DAOSession session,
+            Class<? extends DAO<?, ? extends Serializable>> daoClass)
             throws DAOException;
     
 }

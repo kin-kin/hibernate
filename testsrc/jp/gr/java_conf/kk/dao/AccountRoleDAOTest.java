@@ -46,7 +46,7 @@ public class AccountRoleDAOTest {
     }
     
     /**
-     * Test for {@link AccountRoleDAO#selectAll()}
+     * Test for {@link AccountRoleDAO#selectAll()}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -67,7 +67,7 @@ public class AccountRoleDAOTest {
     }
     
     /**
-     * Test for {@link AccountRoleDAO#selectByPK(Integer)}
+     * Test for {@link AccountRoleDAO#selectByPK(Integer)}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -86,7 +86,7 @@ public class AccountRoleDAOTest {
     }
     
     /**
-     * Test for {@link AccountRoleDAO#selectByPKForUpdate(Integer)}
+     * Test for {@link AccountRoleDAO#selectByPKForUpdate(Integer)}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -105,7 +105,7 @@ public class AccountRoleDAOTest {
     }
     
     /**
-     * Test for {@link AccountRoleDAO#selectByName(String)}
+     * Test for {@link AccountRoleDAO#selectByName(String)}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -124,7 +124,7 @@ public class AccountRoleDAOTest {
     }
     
     /**
-     * Test for {@link AccountRoleDAO#selectCountAll()}
+     * Test for {@link AccountRoleDAO#selectCountAll()}.
      * 
      * @throws Exception if unexpected error occurred.
      */
@@ -139,7 +139,7 @@ public class AccountRoleDAOTest {
     }
     
     /**
-     * Test for {@link AccountRoleDAO#insert(AccountRole)}
+     * Test for {@link AccountRoleDAO#insert(AccountRole)}.
      * 
      * @throws Exception if unexpected error occurred.s
      */
@@ -176,7 +176,7 @@ public class AccountRoleDAOTest {
     }
     
     /**
-     * Test for {@link AccountRoleDAO#update(AccountRole)}
+     * Test for {@link AccountRoleDAO#update(AccountRole)}.
      * 
      * @throws Exception if unexpected error occurred.s
      */
@@ -210,7 +210,7 @@ public class AccountRoleDAOTest {
     }
     
     /**
-     * Test for {@link AccountRoleDAO#delete(AccountRole)}
+     * Test for {@link AccountRoleDAO#delete(AccountRole)}.
      * 
      * @throws Exception if unexpected error occurred.s
      */
@@ -239,7 +239,7 @@ public class AccountRoleDAOTest {
     }
     
     /**
-     * Test for {@link AccountRoleDAO#delete(List)}
+     * Test for {@link AccountRoleDAO#delete(List)}.
      * 
      * @throws Exception if unexpected error occurred.s
      */

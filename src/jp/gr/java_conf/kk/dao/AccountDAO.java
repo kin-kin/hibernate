@@ -16,19 +16,19 @@ public interface AccountDAO extends DAO<Account, Integer> {
      * Get entity list selected by their account ID.
      * 
      * @param accountId account ID
-     * @return entity list (empty if no entry was found)
+     * @return entity list (empty if no entity was found)
      * @throws DAOException if database access failed.
      */
-    List<Account> selectByAccountId(final String accountId) throws DAOException;
+    List<Account> selectByAccountId(String accountId) throws DAOException;
     
     /**
      * Get entity list selected by their account role record ID.
      * 
      * @param accountRoleRecordId account role record ID
-     * @return entity list (empty if no entry was found)
+     * @return entity list (empty if no entity was found)
      * @throws DAOException if database access failed.
      */
-    List<Account> selectByAccountRoleRecordId(final Integer accountRoleRecordId)
+    List<Account> selectByAccountRoleRecordId(Integer accountRoleRecordId)
             throws DAOException;
     
 }
