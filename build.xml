@@ -4,9 +4,9 @@
     <property name="bin.dir" value="bin" />
     <property name="ext.lib.dir" value="extlib" /> <!-- Hibernate Tools -->
     <property name="lib.dir" value="lib" />
-    <property name="res.dir" value="res" />
+    <property name="res.dir" value="src/main/resources" />
     <property name="sql.dir" value="sql" />
-    <property name="src.dir" value="src" />
+    <property name="src.dir" value="src/main/java" />
     <property name="output.dir" value="ant" />
     <property name="hibernate.config" value="${res.dir}/hibernate.cfg.xml" />
     <property name="hibernate.ddl" value="${sql.dir}/kkdb.sql" />

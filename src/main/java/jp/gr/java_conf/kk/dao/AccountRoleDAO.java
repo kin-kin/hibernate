@@ -11,7 +11,7 @@ import jp.gr.java_conf.kk.dao.entity.AccountRole;
 public interface AccountRoleDAO extends DAO<AccountRole, Integer> {
     
     /**
-     * Get entity selected by the name.
+     * Get an entity selected by the name.
      * 
      * @param name name
      * @return entity (null if no entity was found)

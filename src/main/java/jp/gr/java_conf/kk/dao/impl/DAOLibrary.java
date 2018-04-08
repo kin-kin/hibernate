@@ -2,6 +2,9 @@ package jp.gr.java_conf.kk.dao.impl;
 
 import java.io.File;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 
 import jp.gr.java_conf.kk.dao.DAO;
 import jp.gr.java_conf.kk.dao.DAOException;
@@ -21,9 +24,18 @@ public interface DAOLibrary {
      * @return DAO library
      */
     static DAOLibrary createDAOLibrary() {
-        return new DAOLibraryImpl(new File(
-                DAOLibrary.class.getClassLoader()
-                .getResource("hibernate.cfg.xml").getPath()));
+        DAOLibrary lib = null;
+        
+        try {
+            lib = new DAOLibraryImpl(new File(URLDecoder.decode(
+                    DAOLibrary.class.getClassLoader()
+                    .getResource("hibernate.cfg.xml").getPath(),
+                    StandardCharsets.UTF_8.name())));
+        } catch (final UnsupportedEncodingException e) {
+            ;
+        }
+        
+        return lib;
     }
     
     /**

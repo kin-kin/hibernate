@@ -1,5 +1,5 @@
 package jp.gr.java_conf.kk.dao.entity;
-// Generated 2018/03/10 19:09:05 by Hibernate Tools 5.2.9.Final
+// Generated 2018/04/08 18:34:26 by Hibernate Tools 5.2.9.Final
 
 
 import java.util.Date;
